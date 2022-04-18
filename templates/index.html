@@ -1,0 +1,47 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
+
+
+<div class="container">
+	<div class="jumbotron text-center">
+		<h3>Grammar Checking Tool</h3>
+		<p>resume grammar checker</p>
+	</div>
+</div>
+
+<div class="container">
+	<form method="POST" action="{{ url_for('analyse')}}" id="myForm">
+		<label >Enter Your Text Below</label>	
+    <textarea class="form-control" rows="3" cols="2" name="rawtext"></textarea>
+    <input type="submit" name = "" value="Submit" class="btn btn-primary ">
+    <input type="reset" name = "" value="Clear" class="btn btn-outline-primary">
+
+    <a href="{{ url_for('index')}}" type="button" class="btn btn-danger" > Reset</a>
+    
+	</form>
+	
+</div>
+
+<div class="container">
+	<p>Received text:</p>
+	<div class="card">
+		<div>
+			<p> {{received_text}} </p>
+		</div>
+	</div>
+
+</div>
+
+<div class="container">
+	<p>Suggestions:</p>
+
+	{% for i in summary %}
+    <ul class="list-group ">
+		<p>{{ i }} </p>
+    </ul>
+	
+	{% endfor %}
+
+</div>
+
+{% endblock %}
