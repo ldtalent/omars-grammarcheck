@@ -26,7 +26,7 @@ def analyse():
         err = tool.check(rawtext)
         received_text2 = rawtext
         for elm in err:
-            #print(elm.message)
+            #print(elm)
             ret.append(elm.message)
     return render_template('index.html', received_text = received_text2, summary=ret)
 
